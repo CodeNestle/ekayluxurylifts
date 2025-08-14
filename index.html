@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EKAY LUXURY LIFTS</title>
+<style>
+  body { margin: 0; font-family: Arial, sans-serif; background: #f8f8f8; }
+  header, footer { 
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 67%);
+    padding: 15px; color: white;
+  }
+  header { display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-size: 1.5em; font-weight: bold; }
+  nav { display: flex; gap: 15px; }
+  nav a { color: white; text-decoration: none; font-weight: bold; }
+  nav a:hover {text-decoration: none; color: red;}
+  .menu-toggle { display: none; font-size: 24px; cursor: pointer; }
+  @media (max-width: 768px) {
+    nav { display: none; flex-direction: column; background: #444; position: absolute; top: 60px; right: 0; width: 200px; padding: 10px; }
+    nav a { padding: 10px; display: block; }
+    nav.active { display: flex; }
+    .menu-toggle { display: block; color: white; }
+  }
+
+  main { padding: 20px; }
+  h1, h2, h3 { text-align: center; }
+  /*.highlight { color: green; font-weight: bold; }*/
+
+  /* Event Section */
+  .event-card {
+    color: white;
+    background: #833AB4;
+background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .event-card p { font-size: 1.1em; }
+
+  /* Slideshow */
+  .slideshow-container {
+    max-width: 900px;
+    position: relative;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    background: white;
+  }
+  .mySlides { display: none; }
+  .mySlides img { width: 100%; height: auto; }
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.5);
+    user-select: none;
+  }
+  .prev:hover, .next:hover { background: rgba(0,0,0,0.8); }
+  .prev { left: 15px; }
+  .next { right: 15px; }
+  .dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background 0.3s ease;
+  }
+  .active, .dot:hover { background-color: #2ee20a; }
+  .fade { animation: fade 1.5s; }
+  @keyframes fade {
+    from { opacity: .4; }
+    to { opacity: 1; }
+  }
+
+  footer p { margin: 5px 0; text-align: center; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">EKAY LUXURY LIFTS</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <nav>
+    <a href="#event">Expo</a>
+    <a href="#products">Products</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Elevate Your Everyday</h1>
+
+  <!-- Event Section -->
+  <section id="event" class="event-card">
+    <h2>Biggest Engineers Build Expo 2025</h2>
+    <p><strong>Dates:</strong> 15, 16, 17 August 2025</p>
+    <p><strong>Venue:</strong> Thamukkam Convention Centre (A/C), Madurai</p>
+    <p><strong>Visit Us at Stall No:</strong> <span class="highlight">51</span></p>
+    <p style="color:white; font-weight:bold;">FREE ENTRY</p>
+    <p>We Cordially Invite You to Explore Our Home, Goods, and Commercial Lifts.</p>
+  </section>
+
+  <!-- Slideshow -->
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img src="1.jpeg" alt="Home Lift">
+      </div>
+      <div class="mySlides fade">
+        <img src="2.jpeg" alt="Goods Lift">
+      </div>
+      <div class="mySlides fade">
+        <img src="3.jpeg" alt="Commercial Lift">
+      </div>
+      <div class="mySlides fade">
+        <img src="4.jpeg" alt="Glass Lift">
+      </div>
+      <div class="mySlides fade">
+        <img src="5.jpeg" alt="Outdoor Lift">
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <div style="text-align:center; margin-top: 15px;">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+  </section>
+</main>
+
+<!-- Footer with Contact -->
+<footer id="contact">
+  <p><strong>Office:</strong> Thanakkankulam, Madurai - 625 006</p>
+  <p><strong>Phone:</strong> 99449 37345, 99449 37348</p>
+  <p>&copy; 2025 EKAY LUXURY LIFTS. All rights reserved.</p>
+</footer>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+function toggleMenu() {
+  document.querySelector("nav").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
